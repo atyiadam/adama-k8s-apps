@@ -1,0 +1,53 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+        - name: jellyfin
+          image: ghcr.io/linuxserver/jellyfin:latest
+          ports:
+            - containerPort: 8096
+              name: http
+            - containerPort: 8920
+              name: https
+            - containerPort: 1900
+              name: dlna
+              protocol: UDP
+            - containerPort: 7359
+              name: discovery
+              protocol: UDP
+          env:
+            - name: TZ
+              value: "Europe/Amsterdam"
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: media
+              mountPath: /data
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "500m"
+            limits:
+              memory: "4Gi"
+              cpu: "2000m"
+      volumes:
+        - name: config
+          nfs:
+            server: your-nfs-server
+            path: /volume1/docker/jellyfin/config
+        - name: media
+          nfs:
+            server: your-nfs-server
+            path: /volume1/media
