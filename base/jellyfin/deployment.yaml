@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jellyfin
-          image: ghcr.io/linuxserver/jellyfin:latest
+          image: ghcr.io/linuxserver/jellyfin:10.8.13
           ports:
             - containerPort: 8096
               name: http
@@ -44,7 +44,6 @@ spec:
         - name: config
           hostPath:
             path: /opt/jellyfin/config
-            type: DirectoryOrCreate
         - name: media
           nfs:
             server: your-nfs-server
