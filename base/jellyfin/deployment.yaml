@@ -37,9 +37,9 @@ spec:
               mountPath: /data
           resources:
             requests:
-              memory: "4Gi"
+              memory: "10Gi"
             limits:
-              memory: "8Gi"
+              memory: "14Gi"
       volumes:
         - name: config
           nfs:
