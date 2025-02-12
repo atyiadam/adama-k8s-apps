@@ -7,10 +7,6 @@ spec:
   template:
     spec:
       volumes:
-        - name: config
-          nfs:
-            server: synology.home.adamatyi.com
-            path: /volume1/k8s/prod/k8s-01/jellyfin/config
         - name: media
           nfs:
             server: synology.home.adamatyi.com

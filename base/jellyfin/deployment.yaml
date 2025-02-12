@@ -42,9 +42,9 @@ spec:
               memory: "14Gi"
       volumes:
         - name: config
-          nfs:
-            server: your-nfs-server
-            path: /volume1/docker/jellyfin/config
+          hostPath:
+            path: /opt/jellyfin/config
+            type: DirectoryOrCreate
         - name: media
           nfs:
             server: your-nfs-server
