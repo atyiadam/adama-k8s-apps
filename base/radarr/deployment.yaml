@@ -27,8 +27,9 @@ spec:
           mountPath: /movies
         - name: torrents
           mountPath: /torrents
-        ports:
-        - containerPort: 7878
+          ports:
+          - name: http
+            containerPort: 7878
       volumes:
         - name: config
           hostPath:
