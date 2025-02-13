@@ -1,0 +1,17 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: radarr
+spec:
+  template:
+    spec:
+      volumes:
+        - name: movies
+          nfs:
+            server: synology.home.adamatyi.com
+            path: /volume1/media/movies
+        - name: torrents
+          nfs:
+            server: synology.home.adamatyi.com
+            path: /volume1/media/torrents
