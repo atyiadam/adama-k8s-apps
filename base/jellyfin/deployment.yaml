@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jellyfin
-          image: ghcr.io/linuxserver/jellyfin:10.8.13
+          image: ghcr.io/linuxserver/jellyfin:10.10.5
           ports:
             - containerPort: 8096
               name: http
