@@ -7,11 +7,7 @@ spec:
   template:
     spec:
       volumes:
-        - name: movies
+        - name: data
           nfs:
             server: synology.home.adamatyi.com
-            path: /volume1/media/movies
-        - name: torrents
-          nfs:
-            server: synology.home.adamatyi.com
-            path: /volume1/media/torrents
+            path: /volume1/media/

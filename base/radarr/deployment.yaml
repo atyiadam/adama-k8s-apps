@@ -23,10 +23,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: movies
-          mountPath: /movies
-        - name: torrents
-          mountPath: /torrents
+        - name: data
+          mountPath: /data
         ports:
         - name: http
           containerPort: 7878
@@ -34,11 +32,7 @@ spec:
         - name: config
           hostPath:
             path: /opt/radarr/config
-        - name: movies
+        - name: data
           nfs:
             server: your-nfs-server
-            path: /your/path/to/movies
-        - name: torrents
-          nfs:
-            server: your-nfs-server
-            path: /your/path/to/torrents
+            path: /your/path/to/data
