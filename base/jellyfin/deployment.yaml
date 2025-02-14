@@ -39,9 +39,9 @@ spec:
               mountPath: /config-new
           resources:
             requests:
-              memory: "10Gi"
+              memory: "6Gi"
             limits:
-              memory: "14Gi"
+              memory: "12Gi"
       volumes:
         - name: config
           hostPath:
