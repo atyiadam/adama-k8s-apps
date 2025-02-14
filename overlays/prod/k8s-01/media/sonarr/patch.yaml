@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonarr
+spec:
+  template:
+    spec:
+      volumes:
+        - name: data
+          nfs:
+            server: synology.home.adamatyi.com
+            path: /volume1/media/
