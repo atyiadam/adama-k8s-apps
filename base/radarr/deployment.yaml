@@ -35,4 +35,4 @@ spec:
             path: /your/path/to/data
         - name: config
           persistentVolumeClaim:
-            claimName: sonarr-config 
+            claimName: radarr-config 
