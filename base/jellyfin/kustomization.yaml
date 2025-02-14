@@ -5,6 +5,8 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+  - pv.yaml
+  - pvc.yaml
 
 labels:
   - pairs:
