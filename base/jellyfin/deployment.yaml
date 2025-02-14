@@ -35,8 +35,6 @@ spec:
               mountPath: /config
             - name: media
               mountPath: /data
-            - name: config-new
-              mountPath: /config-new
           resources:
             requests:
               memory: "6Gi"
@@ -44,12 +42,9 @@ spec:
               memory: "12Gi"
       volumes:
         - name: config
-          hostPath:
-            path: /opt/jellyfin/config
+          persistentVolumeClaim:
+            claimName: jellyfin-config 
         - name: media
           nfs:
             server: your-nfs-server
             path: /volume1/media
-        - name: config-new
-          persistentVolumeClaim:
-            claimName: jellyfin-config 
