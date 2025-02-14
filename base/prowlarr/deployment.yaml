@@ -32,6 +32,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
+        - name: config-new
+          mountPath: /config-new
         resources:
           limits:
             memory: 400Mi
@@ -51,3 +53,6 @@ spec:
         - name: config
           hostPath:
             path: /opt/prowlarr/config
+        - name: config-new
+          persistentVolumeClaim:
+            claimName: prowlarr-config 

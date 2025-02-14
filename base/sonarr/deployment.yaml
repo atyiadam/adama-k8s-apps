@@ -30,8 +30,8 @@ spec:
           containerPort: 8989
       volumes:
         - name: config
-          hostPath:
-            path: /opt/sonarr/config
+          persistentVolumeClaim:
+            claimName: sonarr-config 
         - name: data
           nfs:
             server: your-nfs-server
