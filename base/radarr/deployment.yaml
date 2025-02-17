@@ -23,6 +23,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
+        - name: config-new
+          mountPath: /config-new
         - name: data
           mountPath: /data
         ports:
@@ -35,4 +37,7 @@ spec:
             path: /your/path/to/data
         - name: config
           persistentVolumeClaim:
-            claimName: radarr-config 
+            claimName: radarr-config-old
+        - name: config-new
+          persistentVolumeClaim:
+            claimName: radarr-config
