@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: radarr-config
+  name: radarr-config-old
 spec:
   nfs:
     path: /volume1/k8s/prod/k8s-01/radarr/config
