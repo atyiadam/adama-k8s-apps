@@ -23,8 +23,8 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /config
-        - name: config-new
-          mountPath: /config-new
+        - name: config-old
+          mountPath: /config-old
         - name: data
           mountPath: /data
         ports:
@@ -35,9 +35,9 @@ spec:
           nfs:
             server: your-nfs-server
             path: /your/path/to/data
-        - name: config
+        - name: config-old
           persistentVolumeClaim:
             claimName: radarr-config-old
-        - name: config-new
+        - name: config
           persistentVolumeClaim:
             claimName: radarr-config
