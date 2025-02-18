@@ -11,3 +11,7 @@ spec:
           nfs:
             server: synology.home.adamatyi.com
             path: /volume1/media
+        - name: config-old
+          nfs:
+            server: synology.home.adamatyi.com
+            path: /volume1/k8s/prod/k8s-01/jellyfin/config
