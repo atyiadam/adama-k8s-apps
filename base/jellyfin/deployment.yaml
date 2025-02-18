@@ -33,8 +33,6 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
-            - name: config-old
-              mountPath: /config-old
             - name: media
               mountPath: /data
           resources:
@@ -50,7 +48,3 @@ spec:
           nfs:
             server: your-nfs-server
             path: /volume1/media
-        - name: config-old
-          nfs:
-            server: synology.home.adamatyi.com
-            path: /volume1/k8s/prod/k8s-01/jellyfin/config
