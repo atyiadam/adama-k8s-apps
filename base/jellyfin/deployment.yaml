@@ -43,6 +43,9 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
+            claimName: jellyfin-config-old 
+        - name: config-new
+          persistentVolumeClaim:
             claimName: jellyfin-config 
         - name: media
           nfs:

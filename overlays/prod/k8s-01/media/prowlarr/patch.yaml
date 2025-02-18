@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: prowlarr-config
-spec:
-  nfs:
-    path: /volume1/k8s/prod/k8s-01/prowlarr/config
-    server: synology.home.adamatyi.com

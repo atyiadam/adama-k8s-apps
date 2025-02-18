@@ -7,9 +7,6 @@ resources:
 
 namespace: media
 
-patches:
-  - path: patch.yaml
-
 labels:
   - pairs:
       environment: prod
