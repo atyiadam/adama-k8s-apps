@@ -33,8 +33,6 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
-            - name: config-new
-              mountPath: /config-new
             - name: media
               mountPath: /data
           resources:
@@ -44,9 +42,6 @@ spec:
               memory: "12Gi"
       volumes:
         - name: config
-          persistentVolumeClaim:
-            claimName: jellyfin-config-old 
-        - name: config-new
           persistentVolumeClaim:
             claimName: jellyfin-config 
         - name: media
