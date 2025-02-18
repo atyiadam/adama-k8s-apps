@@ -33,6 +33,8 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: config-new
+              mountPath: /config-new
             - name: media
               mountPath: /data
           resources:
