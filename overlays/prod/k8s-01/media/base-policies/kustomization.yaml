@@ -8,8 +8,7 @@ resources:
 
 replacements:
   - source:
-      kind: Namespace
-      fieldPath: metadata.name
+      fieldPath: metadata.namespace
     targets:
       - select:
           kind: NetworkPolicy
