@@ -5,11 +5,3 @@ resources:
 - default-deny-ingress.yaml
 - allow-internal-ingress.yaml
 
-vars:
-- name: NAMESPACE
-  objref:
-    kind: Kustomization
-    name: namespace
-    apiVersion: kustomize.config.k8s.io/v1beta1
-  fieldref:
-    fieldpath: metadata.namespace

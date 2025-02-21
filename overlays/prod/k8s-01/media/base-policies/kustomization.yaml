@@ -5,3 +5,13 @@ namespace: media
 
 resources:
 - ../../../../../base/networkpolicies
+
+replacements:
+  - source:
+      kind: Namespace
+      fieldPath: metadata.name
+    targets:
+      - select:
+          kind: NetworkPolicy
+        fieldPaths:
+          - spec.ingress[0].from[0].namespaceSelector.matchLabels.kubernetes.io/metadata.name
