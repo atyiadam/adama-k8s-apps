@@ -6,5 +6,5 @@ namespace: media
 resources:
 - ../../../../../base/networkpolicies
 
-# patches:
-#   - path: patch.yaml
+patches:
+  - path: patch.yaml
