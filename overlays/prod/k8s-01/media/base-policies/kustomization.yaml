@@ -6,12 +6,5 @@ namespace: media
 resources:
 - ../../../../../base/networkpolicies
 
-replacements:
-  - source:
-      fieldPath: metadata.namespace
-    targets:
-      - select:
-          kind: NetworkPolicy
-          name: allow-internal-traffic
-        fieldPaths:
-          - spec.ingress[0].from[0].namespaceSelector.matchLabels.kubernetes.io/metadata.name
+patches:
+  - path: patch.yaml
