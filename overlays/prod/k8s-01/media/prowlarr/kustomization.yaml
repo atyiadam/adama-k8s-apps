@@ -7,8 +7,8 @@ resources:
 
 namespace: media
 
-# patches:
-#   - path: patch.yaml
+patches:
+  - path: patch.yaml
 
 labels:
   - pairs:
