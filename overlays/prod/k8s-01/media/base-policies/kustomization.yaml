@@ -12,5 +12,6 @@ replacements:
     targets:
       - select:
           kind: NetworkPolicy
+          name: allow-internal-traffic
         fieldPaths:
           - spec.ingress[0].from[0].namespaceSelector.matchLabels.kubernetes.io/metadata.name
