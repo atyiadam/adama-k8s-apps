@@ -1,0 +1,9 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "default-allow-same-namespace-ingress"
+spec:
+  endpointSelector: {}
+  ingress:
+  - fromEndpoints:
+    - {} 

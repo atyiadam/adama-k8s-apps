@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - default-deny-all-ingress.yaml
-
+- default-allow-same-namespace-ingress.yaml
