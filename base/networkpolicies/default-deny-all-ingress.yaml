@@ -3,8 +3,6 @@ kind: CiliumNetworkPolicy
 metadata:
   name: "default-deny-all-ingress"
 spec:
-  endpointSelector:
-    matchLabels:
-      - {} 
+  endpointSelector: {}
   ingress:
   - {}
