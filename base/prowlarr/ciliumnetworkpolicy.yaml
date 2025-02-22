@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-prowlarr
+spec:
+  endpointSelector:
+    matchLabels:
+      app: prowlarr
+  ingress:
+  - fromCIDR:
+    - 0.0.0.0/0 
+    toPorts:
+    - ports:
+      - port: "9696"
+        protocol: TCP
