@@ -11,3 +11,16 @@ spec:
           nfs:
             server: synology.home.adamatyi.com
             path: /volume1/media/
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-radarr
+spec:
+  ingress:
+  - fromCIDR:
+    - 10.10.30.110/32 
+    toPorts:
+    - ports:
+      - port: "7878"
+        protocol: TCP

@@ -15,3 +15,16 @@ spec:
           nfs:
             server: synology.home.adamatyi.com
             path: /volume1/k8s/prod/k8s-01/jellyfin/config
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-jellyfin
+spec:
+  ingress:
+  - fromCIDR:
+    - 10.10.30.110/32
+    toPorts:
+    - ports:
+      - port: "8096"
+        protocol: TCP

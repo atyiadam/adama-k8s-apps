@@ -1,12 +1,15 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-lb-to-prowlarr
+  name: allow-lb-to-radarr
 spec:
+  endpointSelector:
+    matchLabels:
+      app: radarr
   ingress:
   - fromCIDR:
-    - 10.10.30.110/32
+    - 0.0.0.0/0 
     toPorts:
     - ports:
-      - port: "9696"
+      - port: "7878"
         protocol: TCP
