@@ -4,5 +4,4 @@ metadata:
   name: "default-deny-all-ingress"
 spec:
   endpointSelector: {}
-  ingress:
-  - {}
+  ingress: []
