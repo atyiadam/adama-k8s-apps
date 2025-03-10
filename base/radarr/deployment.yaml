@@ -7,6 +7,10 @@ spec:
   selector:
     matchLabels:
       app: radarr
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:

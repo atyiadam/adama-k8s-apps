@@ -9,6 +9,10 @@ spec:
   selector:
     matchLabels:
       app: prowlarr
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:

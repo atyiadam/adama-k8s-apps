@@ -8,6 +8,10 @@ spec:
   selector:
     matchLabels:
       app: jellyfin
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   template:
     metadata:
       labels:
