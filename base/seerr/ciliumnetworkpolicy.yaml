@@ -9,7 +9,7 @@ spec:
       app.kubernetes.io/instance: seerr
   ingress:
   - fromCIDR:
-    - 0.0.0.0/0 
+    - 10.10.30.110/32 
     toPorts:
     - ports:
       - port: "5055"
