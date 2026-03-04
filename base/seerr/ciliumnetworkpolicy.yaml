@@ -5,7 +5,8 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app: seerr
+      app.kubernetes.io/name: seerr-chart
+      app.kubernetes.io/instance: seerr
   ingress:
   - fromCIDR:
     - 0.0.0.0/0 
