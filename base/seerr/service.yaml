@@ -19,7 +19,7 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-      nodePort: 30085
+      nodePort: 30086
   selector:
     app.kubernetes.io/name: seerr-chart
     app.kubernetes.io/instance: seerr
