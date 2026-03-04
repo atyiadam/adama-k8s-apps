@@ -1,5 +1,6 @@
 ---
 # Source: seerr-chart/templates/service.yaml
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,12 +13,13 @@ metadata:
     app.kubernetes.io/part-of: seerr-chart
     app.kubernetes.io/managed-by: Helm
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
-    - port: 80
+    - port: 5055
       targetPort: http
       protocol: TCP
       name: http
+      nodePort: 30085
   selector:
     app.kubernetes.io/name: seerr-chart
     app.kubernetes.io/instance: seerr
