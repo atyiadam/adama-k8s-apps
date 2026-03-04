@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-seerr
+spec:
+  endpointSelector:
+    matchLabels:
+      app: seerr
+  ingress:
+  - fromCIDR:
+    - 0.0.0.0/0 
+    toPorts:
+    - ports:
+      - port: "5055"
+        protocol: TCP
