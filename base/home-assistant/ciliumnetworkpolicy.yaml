@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-home-assitant
+spec:
+  endpointSelector:
+    matchLabels:
+      app: home-assistant
+  ingress:
+  - fromCIDR:
+    - 0.0.0.0/0 
+    toPorts:
+    - ports:
+      - port: "8123"
+        protocol: TCP
