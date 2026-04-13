@@ -19,6 +19,7 @@ spec:
           image: "ghcr.io/home-assistant/home-assistant:stable"
           ports:
             - containerPort: 8123
+              name: http
           volumeMounts:
             - mountPath: /config
               name: home-assistant-config-volume
