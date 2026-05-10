@@ -39,6 +39,8 @@ spec:
           env:
             - name: TZ
               value: "Europe/Amsterdam"
+            - name: DOCKER_MODS
+              value: "linuxserver/mods:jellyfin-opencl-intel"
           volumeMounts:
             - name: config
               mountPath: /config
