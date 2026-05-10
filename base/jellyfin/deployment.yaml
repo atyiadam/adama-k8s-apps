@@ -17,6 +17,11 @@ spec:
       labels:
         app: jellyfin
     spec:
+      nodeSelector:
+        gpu: intel-quicksync
+      securityContext:
+        supplementalGroups:
+          - 993
       containers:
         - name: jellyfin
           image: ghcr.io/linuxserver/jellyfin:latest
@@ -39,6 +44,8 @@ spec:
               mountPath: /config
             - name: media
               mountPath: /data
+            - name: dri
+              mountPath: /dev/dri
           resources:
             requests:
               memory: "6Gi"
@@ -47,8 +54,12 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: jellyfin-config 
+            claimName: jellyfin-config
         - name: media
           nfs:
             server: your-nfs-server
             path: /volume1/media
+        - name: dri
+          hostPath:
+            path: /dev/dri
+            type: Directory
