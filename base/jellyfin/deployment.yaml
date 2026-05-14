@@ -37,6 +37,10 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: transcodes
+              mountPath: /config/transcodes
+            - name: cache
+              mountPath: /config/cache
             - name: media
               mountPath: /data
           resources:
@@ -47,7 +51,13 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: jellyfin-config
+            claimName: jellyfin-config      
+        - name: transcodes
+          emptyDir:
+            sizeLimit: 10Gi
+        - name: cache
+          emptyDir:
+            sizeLimit: 5Gi
         - name: media
           nfs:
             server: your-nfs-server
