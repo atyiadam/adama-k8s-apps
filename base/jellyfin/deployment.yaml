@@ -51,7 +51,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: jellyfin-config      
+            claimName: jellyfin-config-new 
         - name: transcodes
           emptyDir:
             sizeLimit: 10Gi
