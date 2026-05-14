@@ -17,11 +17,6 @@ spec:
       labels:
         app: jellyfin
     spec:
-      nodeSelector:
-        gpu: intel-quicksync
-      securityContext:
-        supplementalGroups:
-          - 993
       containers:
         - name: jellyfin
           image: ghcr.io/linuxserver/jellyfin:latest
@@ -39,15 +34,11 @@ spec:
           env:
             - name: TZ
               value: "Europe/Amsterdam"
-            - name: DOCKER_MODS
-              value: "linuxserver/mods:jellyfin-opencl-intel"
           volumeMounts:
             - name: config
               mountPath: /config
             - name: media
               mountPath: /data
-            - name: dri
-              mountPath: /dev/dri
           resources:
             requests:
               memory: "6Gi"
@@ -61,7 +52,3 @@ spec:
           nfs:
             server: your-nfs-server
             path: /volume1/media
-        - name: dri
-          hostPath:
-            path: /dev/dri
-            type: Directory
