@@ -13,3 +13,6 @@ spec:
     - ports:
       - port: "2283"
         protocol: TCP
+  egress:
+    - toEndpoints:
+        - {}
