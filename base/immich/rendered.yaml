@@ -10,7 +10,7 @@ metadata:
     app.kubernetes.io/name: machine-learning
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 ---
 # Source: immich/templates/server.yaml
 apiVersion: v1
@@ -23,7 +23,7 @@ metadata:
     app.kubernetes.io/name: server
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 ---
 # Source: immich/templates/valkey.yaml
 apiVersion: v1
@@ -36,7 +36,7 @@ metadata:
     app.kubernetes.io/name: valkey
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 ---
 # Source: immich/templates/machine-learning.yaml
 kind: PersistentVolumeClaim
@@ -49,7 +49,7 @@ metadata:
     app.kubernetes.io/name: machine-learning
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   accessModes:
     - "ReadWriteOnce"
@@ -69,7 +69,7 @@ metadata:
     app.kubernetes.io/name: valkey
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   accessModes:
     - "ReadWriteOnce"
@@ -90,7 +90,7 @@ metadata:
     app.kubernetes.io/service: immich-machine-learning
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   type: ClusterIP
   ports:
@@ -115,7 +115,7 @@ metadata:
     app.kubernetes.io/service: immich-server
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   type: ClusterIP
   ports:
@@ -142,7 +142,7 @@ metadata:
     app.kubernetes.io/service: immich-valkey
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   type: ClusterIP
   ports:
@@ -167,7 +167,7 @@ metadata:
     app.kubernetes.io/name: machine-learning
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -269,7 +269,7 @@ metadata:
     app.kubernetes.io/name: server
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   revisionHistoryLimit: 3
   replicas: 1
@@ -365,7 +365,7 @@ metadata:
     app.kubernetes.io/name: valkey
     app.kubernetes.io/version: v3.0.0
     helm.sh/chart: immich-0.13.1
-  namespace: media
+  namespace: immich
 spec:
   revisionHistoryLimit: 3
   replicas: 1

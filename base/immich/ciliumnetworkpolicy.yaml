@@ -1,15 +1,15 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-lb-to-jellyfin
+  name: allow-lb-to-immich
 spec:
   endpointSelector:
     matchLabels:
-      app: jellyfin
+      app: immich
   ingress:
   - fromCIDR:
     - 0.0.0.0/0 
     toPorts:
     - ports:
-      - port: "8096"
+      - port: "2283"
         protocol: TCP
