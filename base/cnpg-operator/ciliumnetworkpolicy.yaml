@@ -1,19 +1,11 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-immich-ingress
+  name: allow-all-traffic
   namespace: cnpg-system
 spec:
-  endpointSelector:
-    matchExpressions:
-      - key: cnpg.io/cluster
-        operator: Exists
+  endpointSelector: {}
   ingress:
-    - fromEndpoints:
-        - matchLabels:
-            k8s:io.kubernetes.pod.namespace: immich
-            app.kubernetes.io/part-of: immich
-      toPorts:
-        - ports:
-            - port: "5432"
-              protocol: TCP
+    - {}
+  egress:
+    - {}

@@ -1,59 +1,11 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-lb-to-immich
-spec:
-  endpointSelector:
-    matchLabels:
-      app.kubernetes.io/instance: immich
-  ingress:
-  - fromCIDR:
-    - 0.0.0.0/0 
-    toPorts:
-    - ports:
-      - port: "2283"
-        protocol: TCP
-  egress:
-    - toEndpoints:
-        - {}
----
-apiVersion: cilium.io/v2
-kind: CiliumNetworkPolicy
-metadata:
-  name: allow-immich-to-postgres
+  name: allow-all-traffic
   namespace: immich
 spec:
-  endpointSelector:
-    matchLabels:
-      app.kubernetes.io/instance: immich
+  endpointSelector: {}
   ingress:
-    - fromCIDR:
-        - 0.0.0.0/0
-      toPorts:
-        - ports:
-            - port: "2283"
-              protocol: TCP
+    - {}
   egress:
-    # 1. Allow egress to PostgreSQL in cnpg-system
-    - toEndpoints:
-        - matchLabels:
-            k8s:io.kubernetes.pod.namespace: cnpg-system
-      toPorts:
-        - ports:
-            - port: "5432"
-              protocol: TCP
-    # 2. Allow DNS resolution
-    - toEndpoints:
-        - matchLabels:
-            k8s:io.kubernetes.pod.namespace: kube-system
-            k8s-app: kube-dns
-      toPorts:
-        - ports:
-            - port: "53"
-              protocol: ANY
-          rules:
-            dns:
-              - matchPattern: "*"
-    # 3. Allow internal K8s cluster IPs / API
-    - toEntities:
-        - cluster
+    - {}
