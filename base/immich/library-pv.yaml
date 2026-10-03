@@ -16,14 +16,14 @@ spec:
     - nfsvers=4
   storageClassName: ""
   claimRef:
-    namespace: media
+    namespace: immich
     name: immich-library
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: immich-library
-  namespace: media
+  namespace: immich
 spec:
   accessModes:
     - ReadWriteMany
