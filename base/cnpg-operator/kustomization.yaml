@@ -8,3 +8,4 @@ helmCharts:
     namespace: cnpg-system
     version: 0.29.0
     includeCRDs: true
+    kubeVersion: "1.35.0"
