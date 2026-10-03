@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-lb-to-jellyfin
+spec:
+  endpointSelector:
+    matchLabels:
+      app: jellyfin
+  ingress:
+  - fromCIDR:
+    - 0.0.0.0/0 
+    toPorts:
+    - ports:
+      - port: "8096"
+        protocol: TCP
