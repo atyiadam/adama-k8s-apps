@@ -4,10 +4,8 @@ metadata:
   name: allow-lb-to-immich
 spec:
   endpointSelector:
-    matchExpressions:
-      - key: app.kubernetes.io/part-of
-        operator: In
-        values: [immich]
+    matchLabels:
+      app.kubernetes.io/instance: immich
   ingress:
   - fromCIDR:
     - 0.0.0.0/0 
@@ -26,13 +24,17 @@ metadata:
   namespace: immich
 spec:
   endpointSelector:
-    matchExpressions:
-      - key: app.kubernetes.io/part-of
-        operator: In
-        values:
-          - immich
+    matchLabels:
+      app.kubernetes.io/instance: immich
+  ingress:
+    - fromCIDR:
+        - 0.0.0.0/0
+      toPorts:
+        - ports:
+            - port: "2283"
+              protocol: TCP
   egress:
-    # Allow egress to PostgreSQL pods in cnpg-system on port 5432
+    # 1. Allow egress to PostgreSQL in cnpg-system
     - toEndpoints:
         - matchLabels:
             k8s:io.kubernetes.pod.namespace: cnpg-system
@@ -40,7 +42,7 @@ spec:
         - ports:
             - port: "5432"
               protocol: TCP
-    # Allow DNS resolution via kube-dns in kube-system
+    # 2. Allow DNS resolution
     - toEndpoints:
         - matchLabels:
             k8s:io.kubernetes.pod.namespace: kube-system
@@ -52,3 +54,6 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
+    # 3. Allow internal K8s cluster IPs / API
+    - toEntities:
+        - cluster
